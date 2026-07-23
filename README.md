@@ -37,3 +37,7 @@ Windows 연결 정보는 `%LOCALAPPDATA%\AI Expedition\device.json`에 저장됩
 Codex 앱의 **Plugins** 화면에서 AI Expedition을 삭제하거나 다시 설치할 수 있습니다. 연결 정보까지 지우려면 Codex를 종료한 뒤 위의 `device.json` 파일을 삭제하세요.
 
 문제가 생기면 [GitHub Issues](https://github.com/eat-toast/ai-expedition-plugin/issues)에 운영체제와 오류 메시지만 남겨주세요. 토큰이나 `device.json` 내용은 올리지 마세요.
+
+## AI 개발자 안내
+
+코딩 AI가 이 저장소를 수정할 때는 먼저 [`AGENTS.md`](AGENTS.md)를 읽어야 합니다. 제품 목적, 파일별 역할, 개인정보 금지사항, 버전 변경 규칙과 배포 전 검사가 정리되어 있습니다.
