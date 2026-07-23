@@ -2,7 +2,7 @@
 
 Codex에서 하던 일이 그대로 한 번의 원정이 됩니다. 평소처럼 Codex에 작업을 맡기면 시작과 완료가 자동으로 기록되고, 얻은 장비로 전투력을 높여 친구들과 랭킹을 겨룰 수 있습니다.
 
-[게임 열기](https://ai-expedition-forge.automl141115.chatgpt.site) · 현재 버전 `0.1.0` · 친구 테스트 기간 무료
+[게임 열기](https://ai-expedition-forge.automl141115.chatgpt.site) · 현재 버전 `0.1.1` · 친구 테스트 기간 무료
 
 ![AI 원정대의 원정 및 장비 화면](docs/images/expedition.png)
 
@@ -45,15 +45,21 @@ codex plugin add ai-expedition@ai-expedition-friends
 
 연결 코드는 한 번만 쓸 수 있고 10분 후 만료됩니다.
 
+### 혼자서 연결 상태 확인
+
+Codex에 `AI 원정대 연결 상태 확인해줘`라고 입력하면 연결 여부, 이번 주 원정 횟수와 최근 시작·완료 신호를 확인합니다.
+
+기기는 연결됐지만 원정 신호가 없다면 Codex에서 `/hooks`를 열고 AI 원정대 훅을 검토·신뢰한 다음 새 작업을 시작하세요. 다른 계정을 만들지 않아도 사이트 랭킹 탭의 `SOLO QA · CODEX SIGNAL` 카드에서 같은 상태를 확인할 수 있습니다.
+
 ## 어떤 정보를 보내나요?
 
 플러그인은 무작위 원정 ID와 시작·완료 시각만 게임 서버로 보냅니다. 질문, 답변, 파일 내용, 파일 경로, 도구 출력은 보내지 않습니다.
 
-Windows 연결 정보는 `%LOCALAPPDATA%\AI Expedition\device.json`에 저장됩니다. 연결에 실패해도 Codex 작업은 계속됩니다.
+연결 정보는 Codex가 플러그인별로 제공하는 쓰기 전용 데이터 폴더에 저장됩니다. 이전 버전과 호환이 필요한 환경에서는 Windows의 `%LOCALAPPDATA%\AI Expedition` 폴더를 사용합니다. 연결에 실패해도 Codex 작업은 계속됩니다.
 
 ## 삭제 또는 문제 해결
 
-Codex 앱의 **Plugins** 화면에서 AI Expedition을 삭제하거나 다시 설치할 수 있습니다. 연결 정보까지 지우려면 Codex를 종료한 뒤 위의 `device.json` 파일을 삭제하세요.
+Codex 앱의 **Plugins** 화면에서 AI Expedition을 업데이트하거나 삭제하고 다시 설치할 수 있습니다.
 
 문제가 생기면 [GitHub Issues](https://github.com/eat-toast/ai-expedition-plugin/issues)에 운영체제와 오류 메시지만 남겨주세요. 토큰이나 `device.json` 내용은 올리지 마세요.
 

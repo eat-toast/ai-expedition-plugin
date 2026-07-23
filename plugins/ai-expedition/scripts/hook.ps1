@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 $apiOrigin = 'https://ai-expedition-forge.automl141115.chatgpt.site'
-$dataDirectory = Join-Path $env:LOCALAPPDATA 'AI Expedition'
+$dataDirectory = if ($env:PLUGIN_DATA) { $env:PLUGIN_DATA } else { Join-Path $env:LOCALAPPDATA 'AI Expedition' }
 
 try {
   $eventJson = [Console]::In.ReadToEnd()
@@ -35,7 +35,7 @@ try {
       sessionKey = $sessionKey
       startedAt = [DateTime]::UtcNow.ToString('o')
     }
-    $body = @{ turnId = $state.turnId; pluginVersion = '0.1.0' } | ConvertTo-Json -Compress
+    $body = @{ turnId = $state.turnId; pluginVersion = '0.1.1' } | ConvertTo-Json -Compress
     Invoke-RestMethod -Uri "$apiOrigin/api/expeditions/start" -Method Post -Headers $headers -ContentType 'application/json' -Body $body -TimeoutSec 3 | Out-Null
     $state | ConvertTo-Json -Compress | Set-Content -LiteralPath $statePath -Encoding UTF8
     exit 0

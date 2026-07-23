@@ -16,10 +16,10 @@ try {
   $body = @{
     code = $Code
     label = 'Windows Codex'
-    pluginVersion = '0.1.0'
+    pluginVersion = '0.1.1'
   } | ConvertTo-Json -Compress
   $result = Invoke-RestMethod -Uri "$apiOrigin/api/devices/pair" -Method Post -ContentType 'application/json' -Body $body -TimeoutSec 5
-  $dataDirectory = Join-Path $env:LOCALAPPDATA 'AI Expedition'
+  $dataDirectory = if ($env:PLUGIN_DATA) { $env:PLUGIN_DATA } else { Join-Path $env:LOCALAPPDATA 'AI Expedition' }
   New-Item -ItemType Directory -Path $dataDirectory -Force | Out-Null
   [ordered]@{
     deviceId = $result.deviceId

@@ -23,6 +23,8 @@ The game must stay secondary to the user's real work:
 - `plugins/ai-expedition/scripts/hook.ps1`: Windows PowerShell hook implementation.
 - `plugins/ai-expedition/scripts/pair.mjs` and `pair.ps1`: exchange a six-character one-time code for a device token.
 - `plugins/ai-expedition/skills/connect/SKILL.md`: tells Codex how to perform pairing safely.
+- `plugins/ai-expedition/scripts/status.mjs` and `status.ps1`: report sanitized connection and expedition counters.
+- `plugins/ai-expedition/skills/status/SKILL.md`: tells Codex how to diagnose ranking signals without exposing tokens.
 - `README.md`: human-facing installation instructions.
 - `SECURITY.md`: secret-handling guidance.
 
@@ -61,7 +63,7 @@ Treat these as release blockers:
 When behavior changes:
 
 1. Keep Node and PowerShell implementations equivalent.
-2. Update the version in `plugin.json`, `shared.mjs`, and both PowerShell scripts together.
+2. Update the version in `plugin.json`, `shared.mjs`, and all PowerShell scripts that send the version together.
 3. Update `CHANGELOG.md` and user-facing instructions when installation or pairing changes.
 4. Do not change the marketplace name `ai-expedition-friends` or plugin name `ai-expedition` without a migration plan.
 5. Do not add a new data field to an API request unless its privacy need is documented.
@@ -75,9 +77,10 @@ python <plugin-creator>/scripts/validate_plugin.py plugins/ai-expedition
 node --check plugins/ai-expedition/scripts/shared.mjs
 node --check plugins/ai-expedition/scripts/hook.mjs
 node --check plugins/ai-expedition/scripts/pair.mjs
+node --check plugins/ai-expedition/scripts/status.mjs
 ```
 
-Also parse both `.ps1` files with the PowerShell parser and verify `.agents/plugins/marketplace.json` as JSON.
+Also parse all `.ps1` files with the PowerShell parser and verify `.agents/plugins/marketplace.json` as JSON.
 
 For a release, commit to `main` only after validation and create a matching semantic version tag such as `v0.1.1`.
 

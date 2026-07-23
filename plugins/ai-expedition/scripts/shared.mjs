@@ -3,9 +3,12 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 
 export const API_ORIGIN = "https://ai-expedition-forge.automl141115.chatgpt.site";
-export const PLUGIN_VERSION = "0.1.0";
+export const PLUGIN_VERSION = "0.1.1";
 
 export function dataDirectory() {
+  if (process.env.PLUGIN_DATA) {
+    return process.env.PLUGIN_DATA;
+  }
   if (process.platform === "win32" && process.env.LOCALAPPDATA) {
     return join(process.env.LOCALAPPDATA, "AI Expedition");
   }
