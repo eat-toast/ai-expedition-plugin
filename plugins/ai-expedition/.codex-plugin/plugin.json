@@ -1,0 +1,21 @@
+{
+  "name": "ai-expedition",
+  "version": "0.1.0",
+  "description": "Turn Codex sessions into shared AI Expedition progress and weekly rankings.",
+  "author": {
+    "name": "AI Expedition"
+  },
+  "homepage": "https://ai-expedition-forge.automl141115.chatgpt.site",
+  "repository": "https://github.com/eat-toast/ai-expedition-plugin",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI Expedition",
+    "shortDescription": "Play with friends while using Codex.",
+    "longDescription": "Records only expedition start and completion signals so friends can compete on a shared weekly leaderboard.",
+    "developerName": "AI Expedition",
+    "category": "Entertainment",
+    "capabilities": ["Lifecycle hooks", "Shared ranking"],
+    "websiteURL": "https://ai-expedition-forge.automl141115.chatgpt.site",
+    "defaultPrompt": "AI 원정대 연결 방법을 알려줘"
+  }
+}

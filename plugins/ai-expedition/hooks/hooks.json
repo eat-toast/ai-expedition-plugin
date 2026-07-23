@@ -1,0 +1,29 @@
+{
+  "description": "Records an expedition at the start and end of each Codex turn. Prompt text, file contents, and tool output are never transmitted.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$PLUGIN_ROOT/scripts/hook.mjs\" start",
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"%PLUGIN_ROOT%\\scripts\\hook.ps1\" start",
+            "timeout": 4
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$PLUGIN_ROOT/scripts/hook.mjs\" complete",
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"%PLUGIN_ROOT%\\scripts\\hook.ps1\" complete",
+            "timeout": 4
+          }
+        ]
+      }
+    ]
+  }
+}

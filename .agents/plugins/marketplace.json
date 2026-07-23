@@ -1,0 +1,20 @@
+{
+  "name": "ai-expedition-friends",
+  "interface": {
+    "displayName": "AI Expedition Friends"
+  },
+  "plugins": [
+    {
+      "name": "ai-expedition",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-expedition"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Entertainment"
+    }
+  ]
+}
